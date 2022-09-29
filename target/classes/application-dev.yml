@@ -1,0 +1,40 @@
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_investec?AUTORECONNECT=true
+    username: Scott
+    password: tiger
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+  mvc:
+    log-request-details: true
+
+logging:
+  level:
+    web: DEBUG
+    org:
+      hibernate: ERROR
+      springframework:
+        web: DEBUG
+
+hazelcast:
+  network:
+    join:
+      multicast:
+        enabled: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /client-api
+investec-client-api:
+  services:
+    url: http://localhost:8080/client-api
